@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Victory Play Display</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" type="text/css" href="https://raw.githack.com/Sup2point0/supcode/sup/resources/Nova/Nova.css">
+  <link rel="stylesheet" type="text/css" href="essence.css">
+</head>
+
+<body>
+  <div class="content">
+    <div class="flavour-text">
+      <input type="text" placeholder="The quick brown fox jumps over the lazy dog"></input>
+    </div>
+
+    <div class="health-display">
+      <div class="health-menu player-1">
+        <span class="health-text">4000</span>
+        <div class="health-input">
+          <input type="number"></input>
+          <button class="swap-polarity">
+            <span class="material-symbols-outlined">add</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="health-menu player-2">
+        <span class="health-text">4000</span>
+        <div class="health-input">
+          <input type="number"></input>
+          <button class="swap-polarity">
+            <span class="material-symbols-outlined">add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <button id="action-reset"></button>
+      <button id="swaps-sides"></button>
+      <button id="action-undo"></button>
+    </div>
+  </div>
+</body>
+
+<script src="core.js"></script>
+
+</html>
