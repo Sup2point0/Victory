@@ -1,7 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+/* INTERNAL */
+/* @property --health-value {
+  syntax: '<integer>';
+  initial-value: 4000;
+  inherits: false;
+} */
 
+html {
+  --player-1-colour: var(--blue-nova);
+  --player-2-colour: var(--pink-elec);
+}
 
-/* CORE */
 .material-symbols-outlined {
   font-variation-settings:
     'FILL' 0,
@@ -10,9 +18,29 @@
     'opsz' 24
 }
 
+.player-1 {
+  --this-colour: var(--player-1-colour);
+  --other-colour: var(--player-2-colour);
+}
+.player-2 {
+  --this-colour: var(--player-2-colour);
+  --other-colour: var(--player-1-colour);
+}
+
+
+/* CORE */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+
+/* SECTIONS */
+.player-1, .player-2 {
+  color: var(--this-colour);
+}
 
 .content {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,19 +55,72 @@
 }
 
 
+/* PARTS */
 .health-text {
   font-size: 12rem;
   font-family: Abel;
 }
-.player-1 {
-  color: var(--blue-nova);
-}
-.player-2 {
-  color: var(--pink-elec);
-}
 
-
-.action-buttons {
+.health-menu {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.health-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.health-input input {
+  width: 10rem;
+  font-size: 2rem;
+  border: 2px solid var(--grey-nova);
+  border-color: none;
+  border-radius: 2rem;
+  transition: all 0.12s ease;
+}
+.health-input input:hover {
+  border-color: var(--blue-nova);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--blue-nova) 42%, transparent);
+}
+
+.health-input button {
+  /* position: absolute; */
+  margin-left: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  text-align: center;
+  background-color: var(--this-colour);
+  color: #fff;
+  border-radius: 50%;
+  border: none;
+}
+.health-input button:hover {
+  color: #fff;
+  background-color: var(--other-colour);
+}
+
+.action-buttons {
+  margin: 4rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.action-buttons button {
+  margin: auto 0.5rem auto;
+  padding: 0.42em 0.69em 0.42em;
+  background-color: var(--grey-swallow);
+  font-size: 169%;
+  font-family: 'Sniglet', system-ui, sans-serif;
+  color: var(--blue-sky);
+  border: none;
+  border-radius: 0.5em;
+  transition: all 0.12s ease;
+}
+.action-buttons button:hover {
+  background-color: var(--pink-elec);
+  color: #fff;
 }
