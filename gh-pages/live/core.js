@@ -6,7 +6,10 @@ class Player {
   static #shardCount = 0;
 
   shard;
+  element;
+
   #health;
+  healthDisplayed;
 
   get health() {
     return this.#health;
@@ -18,17 +21,18 @@ class Player {
       this.#health = 0;
     }
 
-    document.querySelector(`.player-${this.shard} .health-text`)
-      .innerHTML = this.#health;
+    this.element.innerHTML = this.#health;
+    this.element.style['--health-value'] = this.#health;
   }
 
   constructor(shard = null) {
     this.shard = shard ?? ++Player.#shardCount;
+    this.element = document.querySelector(`.player-${this.shard} .health-text`);
     this.reset();
   }
 
   reset() {
-    this.#health = 4000;
+    this.health = 4000;
   }
 
   halveHealth() {
@@ -36,17 +40,22 @@ class Player {
   }
 }
 
-function processKeyboardShortcuts(event) {
+export function processKeyboardShortcuts(event) {
   if (!event.ctrlKey && !event.metaKey) {
     return;
   }
 
-  event.preventDefault();
-
   switch (event.key) {
     case "1":
+      event.preventDefault();
       document.querySelector(
-        `.player-${this.shard} .health-input input`).focus();
+        `.player-1 .health-input input`).focus();
+      break;
+    case "2":
+      event.preventDefault();
+      document.querySelector(
+        `.player-2 .health-input input`).focus();
+      break;
     default: return;
   }
 }

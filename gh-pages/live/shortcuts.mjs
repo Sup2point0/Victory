@@ -3,12 +3,12 @@ export function processKeyboardShortcuts(event) {
     return;
   }
 
-  event.preventDefault();
-
   switch (event.key) {
     case "1":
+      event.preventDefault();
       document.querySelector(
-        `.player${this.shard} .health-input input`).focus();
+        `.player-${this.shard} .health-input input`).focus();
+      break;
     default: return;
   }
 }
