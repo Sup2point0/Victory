@@ -6,6 +6,8 @@
 } */
 
 html {
+  --font-tech: 'Abel', system-ui, sans-serif;
+  --font-flavour: 'Sniglet', system-ui, sans-serif;
   --player-1-colour: var(--blue-nova);
   --player-2-colour: var(--pink-elec);
 }
@@ -58,7 +60,7 @@ input::-webkit-inner-spin-button {
 /* PARTS */
 .health-text {
   font-size: 12rem;
-  font-family: Abel;
+  font-family: var(--font-tech);
 }
 
 .health-menu {
@@ -76,15 +78,18 @@ input::-webkit-inner-spin-button {
 
 .health-input input {
   width: 10rem;
+  padding: 0.5rem 1.5rem;
+  font-family: var(--font-tech);
   font-size: 2rem;
   border: 2px solid var(--grey-nova);
   border-color: none;
   border-radius: 2rem;
-  transition: all 0.12s ease;
+  transition: all 0.12s ease-out;
 }
-.health-input input:hover {
-  border-color: var(--blue-nova);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--blue-nova) 42%, transparent);
+.health-input input:hover, .health-input input:focus {
+  border-color: var(--this-colour);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--this-colour) 42%, transparent);
+  outline: none;
 }
 
 .health-input button {
@@ -97,6 +102,7 @@ input::-webkit-inner-spin-button {
   color: #fff;
   border-radius: 50%;
   border: none;
+  transition: all 0.12s ease;
 }
 .health-input button:hover {
   color: #fff;
@@ -110,11 +116,12 @@ input::-webkit-inner-spin-button {
 }
 
 .action-buttons button {
+  min-width: 4.4em;
   margin: auto 0.5rem auto;
   padding: 0.42em 0.69em 0.42em;
   background-color: var(--grey-swallow);
   font-size: 169%;
-  font-family: 'Sniglet', system-ui, sans-serif;
+  font-family: var(--font-flavour);
   color: var(--blue-sky);
   border: none;
   border-radius: 0.5em;
@@ -123,4 +130,22 @@ input::-webkit-inner-spin-button {
 .action-buttons button:hover {
   background-color: var(--pink-elec);
   color: #fff;
+}
+
+
+/* MISCELLANEOUS */
+.flavour-text {
+  width: 100vw;
+}
+.flavour-text input {
+  width: 96vw;
+  text-align: center;
+  font-family: var(--font-flavour);
+  font-size: 200%;
+  color: var(--grey-swallow);
+  border: none;
+}
+.flavour-text input:focus {
+  border-bottom: 2px dashed var(--lilac-cresc);
+  outline: none;
 }
