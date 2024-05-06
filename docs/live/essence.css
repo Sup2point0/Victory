@@ -6,13 +6,20 @@
 } */
 
 html {
-  --font-tech: 'Abel', system-ui, sans-serif;
-  --font-flavour: 'Sniglet', system-ui, sans-serif;
+  --font-tech: 'Abel', 'Noto Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-title: 'Luckiest Guy', 'Abel', 'Segoe UI', system-ui, sans-serif;
+  --font-flavour: 'Sniglet', 'Segoe UI', system-ui, sans-serif;
+
   --player-1-colour: var(--blue-nova);
   --player-2-colour: var(--pink-elec);
+
+  --interaction-size: 4px;
 }
 
 .material-symbols-outlined {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-variation-settings:
     'FILL' 0,
     'wght' 400,
@@ -31,6 +38,10 @@ html {
 
 
 /* CORE */
+body {
+  overflow-x: hidden;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -41,6 +52,10 @@ input::-webkit-inner-spin-button {
 .player-1, .player-2 {
   color: var(--this-colour);
 }
+/* :is(.player-1, .player-2)::selection {
+  color: #fff;
+  background-color: var(--this-colour);
+} */
 
 .content {
   display: flex;
@@ -58,15 +73,34 @@ input::-webkit-inner-spin-button {
 
 
 /* PARTS */
-.health-text {
-  font-size: 12rem;
-  font-family: var(--font-tech);
+.health-display {
+  width: 92%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: end;
 }
 
 .health-menu {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.health-text {
+  font-size: 12rem;
+  font-family: var(--font-title);
+}
+
+.health-menu meter {
+  width: 20rem;
+  height: 3rem;
+}
+.health-menu meter::-webkit-meter-bar {
+  background: color-mix(in srgb, var(--this-colour) 42%, transparent);
+  outline: var(--grey-swallow) solid var(--interaction-size);
+}
+.health-menu meter::-webkit-meter-optimum-value {
+  background: var(--this-colour);
 }
 
 .health-input {
@@ -88,25 +122,33 @@ input::-webkit-inner-spin-button {
 }
 .health-input input:hover, .health-input input:focus {
   border-color: var(--this-colour);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--this-colour) 42%, transparent);
+  box-shadow: 0 0 0 var(--interaction-size) color-mix(in srgb, var(--this-colour) 42%, transparent);
   outline: none;
 }
 
-.health-input button {
-  /* position: absolute; */
-  margin-left: 1rem;
-  width: 2.5rem;
-  height: 2.5rem;
+.health-display button {
+  width: 3rem;
+  height: 3rem;
   text-align: center;
-  background-color: var(--this-colour);
   color: #fff;
   border-radius: 50%;
   border: none;
   transition: all 0.12s ease;
 }
-.health-input button:hover {
+.health-display button.polarity-positive {
+  background-color: var(--blue-nova);
+}
+.health-display button.polarity-negative {
+  background-color: var(--pink-elec);
+}
+
+.health-display button:hover {
+  background-color: var(--purp-nova);
   color: #fff;
-  background-color: var(--other-colour);
+  box-shadow: 0 0 0 var(--interaction-size) var(--grey-swallow);
+}
+.health-display button:active {
+  transform: scale(0.9);
 }
 
 .action-buttons {
@@ -130,15 +172,21 @@ input::-webkit-inner-spin-button {
 .action-buttons button:hover {
   background-color: var(--pink-elec);
   color: #fff;
+  box-shadow: 0 0 0 var(--interaction-size) var(--grey-swallow);
+}
+.action-buttons button:active {
+  transform: scale(0.9);
 }
 
 
 /* MISCELLANEOUS */
 .flavour-text {
   width: 100vw;
+  margin-bottom: 2rem;
 }
 .flavour-text input {
   width: 96vw;
+  padding-bottom: 2px;
   text-align: center;
   font-family: var(--font-flavour);
   font-size: 200%;
@@ -146,6 +194,7 @@ input::-webkit-inner-spin-button {
   border: none;
 }
 .flavour-text input:focus {
+  padding-bottom: 0;
   border-bottom: 2px dashed var(--lilac-cresc);
   outline: none;
 }
