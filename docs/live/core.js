@@ -114,6 +114,10 @@ export function processKeyboardShortcuts(event) {
       document.querySelector(
         `.player-2 .health-input input`).focus();
       break;
+    case "q":
+      event.preventDefault();
+      swapPolarity.click();
+      break;
     default: return;
   }
 }
@@ -134,23 +138,36 @@ function updatePlayerHealth(shard) {
   actionStack.push({shard: shard, delta: delta,})
 }
 
+
+// INPUTS //
 document.querySelector(".player-1 .health-input input")
   .addEventListener("keydown", event => {
-    if (event.key == "Enter") updatePlayerHealth(1)} );
+    if (event.key == "Enter") updatePlayerHealth(1)}
+  );
 document.querySelector(".player-2 .health-input input")
   .addEventListener("keydown", event => {
-    if (event.key == "Enter") updatePlayerHealth(2)} );
+    if (event.key == "Enter") updatePlayerHealth(2)}
+  );
 
+// BUTTONS //
 let swapPolarity = document.getElementById("swap-polarity");
 let swapPolarityChild = swapPolarity.children[0]
 
 swapPolarity.addEventListener("click", event => {
-    deltaPolarity *= -1;
-    swapPolarityChild.innerHTML = deltaPolarity > 0 ? "add" : "remove";
-    swapPolarity.className = "polarity-" + (deltaPolarity > 0 ? "positive" : "negative");
-  });
+  deltaPolarity *= -1;
+  swapPolarityChild.innerHTML = deltaPolarity > 0 ? "add" : "remove";
+  swapPolarity.className = "polarity-" + (deltaPolarity > 0 ? "positive" : "negative");
+});
 
 document.getElementById("action-reset")
   .addEventListener("click", event => Player.resetAll());
 
+let displayContainer = document.querySelector(".health-display");
+document.getElementById("action-swap")
+  .addEventListener("click", event => 
+    displayContainer.style.flexDirection =
+      displayContainer.style.flexDirection === "row-reverse" ? "row" : "row-reverse"
+  );
+
+// GLOBAL //
 document.addEventListener("keydown", processKeyboardShortcuts);
