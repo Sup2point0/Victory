@@ -1,5 +1,4 @@
-// import { Player } from "player"; //
-// import { processKeyboardShortcuts } from "shortcuts"; //
+// import { Player } from "player";
 
 class Player {
   // STATIC //
@@ -10,7 +9,6 @@ class Player {
   // DYNAMIC //
   static #shardCount = 0;
   static activePlayers = [null]; // spare NULL for 1-indexing
-  static healthExceeded = false;
 
   // FIELDS //
   shard;
@@ -39,21 +37,13 @@ class Player {
     if (this.#health < 0) {
       this.#health = 0;
     }
-
-    if (this.#health > Player.healthInit) {
-      Player.healthExceeded = true;
-    }
-
-    if (Player.healthExceeded) {
-      Player.healthExceeded = false;
    
-      Player.activePlayers.slice(1).forEach(player => {
-        player.meter.max = Math.max(
-          Player.activePlayers[1].health,
-          Player.activePlayers[2].health
-        );
-      });
-    }
+    Player.activePlayers.slice(1).forEach(player => {
+      player.meter.max = Math.max(
+        Player.activePlayers[1].health,
+        Player.activePlayers[2].health
+      );
+    });
 
     requestAnimationFrame(this._callSlideHealth(this.#health));
   }
@@ -98,30 +88,6 @@ class Player {
   }
 }
 
-export function processKeyboardShortcuts(event) {
-  if (!event.ctrlKey && !event.metaKey) {
-    return;
-  }
-
-  switch (event.key) {
-    case "1":
-      event.preventDefault();
-      document.querySelector(
-        `.player-1 .health-input input`).focus();
-      break;
-    case "2":
-      event.preventDefault();
-      document.querySelector(
-        `.player-2 .health-input input`).focus();
-      break;
-    case "q":
-      event.preventDefault();
-      swapPolarity.click();
-      break;
-    default: return;
-  }
-}
-
 
 var player1 = new Player();
 var player2 = new Player();
@@ -152,15 +118,14 @@ document.querySelector(".player-2 .health-input input")
 // BUTTONS //
 let swapPolarity = document.getElementById("swap-polarity");
 let swapPolarityChild = swapPolarity.children[0]
-
 swapPolarity.addEventListener("click", event => {
   deltaPolarity *= -1;
   swapPolarityChild.innerHTML = deltaPolarity > 0 ? "add" : "remove";
   swapPolarity.className = "polarity-" + (deltaPolarity > 0 ? "positive" : "negative");
 });
 
-document.getElementById("action-reset")
-  .addEventListener("click", event => Player.resetAll());
+let actionReset = document.getElementById("action-reset");
+actionReset.addEventListener("click", event => Player.resetAll());
 
 let displayContainer = document.querySelector(".health-display");
 document.getElementById("action-swap")
@@ -171,3 +136,23 @@ document.getElementById("action-swap")
 
 // GLOBAL //
 document.addEventListener("keydown", processKeyboardShortcuts);
+
+
+// KEYBOARD SHORTCUTS //
+const keyboardShortcuts = {
+  "1": () => document.querySelector(`.player-1 .health-input input`).focus(),
+  "2": () => document.querySelector(`.player-2 .health-input input`).focus(),
+  "q": () => swapPolarity.click(),
+  "r": () => actionReset.click(),
+}
+
+function processKeyboardShortcuts(event) {
+  if (!event.ctrlKey && !event.metaKey) {
+    return;
+  }
+
+  if (event.key in keyboardShortcuts) {
+    event.preventDefault();
+    keyboardShortcuts[event.key]();
+  }
+}
