@@ -112,7 +112,7 @@ input::-webkit-inner-spin-button {
   align-items: center;
 }
 
-.health-input input {
+:is(.health-input, .notes) input {
   width: 12rem;
   padding: 0.5rem 1.5rem;
   text-align: center;
@@ -123,7 +123,7 @@ input::-webkit-inner-spin-button {
   border-radius: 2rem;
   transition: all 0.12s ease-out;
 }
-.health-input input:hover, .health-input input:focus {
+:is(.health-input, .notes) input:is(:hover, :focus) {
   border-color: var(--this-colour);
   box-shadow: 0 0 0 var(--interaction-size) color-mix(in srgb, var(--this-colour) 42%, transparent);
   outline: none;
@@ -137,6 +137,7 @@ input::-webkit-inner-spin-button {
   color: white;
   border-radius: 50%;
   border: none;
+  transition: all 0.12s ease;
 }
 .health-display button.polarity-positive {
   background-color: var(--blue-nova);
@@ -185,6 +186,16 @@ input::-webkit-inner-spin-button {
 }
 .action-buttons button:active {
   transform: scale(0.9);
+}
+
+.notes {
+  width: 100vw;
+}
+.notes input.long {
+  width: 30%;
+}
+.notes input.short {
+  width: 10%;
 }
 
 

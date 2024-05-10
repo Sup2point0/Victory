@@ -9,6 +9,7 @@ class Player {
   // DYNAMIC //
   static #shardCount = 0;
   static activePlayers = [null]; // spare NULL for 1-indexing
+  static apexHealth = this.healthInit;
 
   // FIELDS //
   shard;
@@ -37,21 +38,14 @@ class Player {
     if (this.#health < 0) {
       this.#health = 0;
     }
-   
-    Player.activePlayers.slice(1).forEach(player => {
-      player.meter.max = Math.max(
-        Player.activePlayers[1].health,
-        Player.activePlayers[2].health
-      );
-    });
 
     requestAnimationFrame(this._callSlideHealth(this.#health));
   }
 
   // METHODS //
   reset() {
-    this.healthText = Player.healthInit;
     this.health = Player.healthInit;
+    this.healthText = Player.healthInit;
     this.meter.max = Player.healthInit;
   }
 
@@ -64,11 +58,31 @@ class Player {
   }
 
   // INTERNAL //
-  _slideHealth(target) {
-    if (target !== this.#health) return;
+  _slideApexHealth(target) {
+    Player.apexHealth = Math.max(
+      Player.activePlayers[1],
+      Player.activePlayers[2]
+    );
+    if (target !== Player.apexHealth) return;
+
+    let delta = Player.apexHealth - this.meter.max;
+    let final = (Math.abs(delta) < Player.healthDecayThreshold);
+
+    if (final) {
+      this.meter.max = Player.apexHealth;
+    } else {
+      this.meter.max += delta / Player.healthDecayRate;
+    }
+  }
+
+  _slideHealth(targetHealth, targetApexHealth) {
+    this._slideApexHealth(targetApexHealth);
+
+    if (targetHealth !== this.#health) return;
   
     let delta = this.#health - this.healthText;
     let final = (Math.abs(delta) < Player.healthDecayThreshold);
+
     if (final) {
       this.healthText = this.#health;
     } else {
@@ -79,12 +93,12 @@ class Player {
     this.meter.value = Math.round(this.healthText);
 
     if (!final) {
-      requestAnimationFrame(this._callSlideHealth(target));
+      requestAnimationFrame(this._callSlideHealth(targetHealth, targetApexHealth));
     }
   }
   
-  _callSlideHealth(target) {
-    return (timestamp) => this._slideHealth(target);
+  _callSlideHealth(targetHealth, targetApexHealth) {
+    return (timestamp) => this._slideHealth(targetHealth, targetApexHealth);
   }
 }
 
