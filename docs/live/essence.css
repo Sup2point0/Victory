@@ -66,8 +66,16 @@ button {
   border: none;
   transition: all 0.12s ease;
 }
+button.clean {
+  background-color: white;
+  color: var(--blue-sky);
+  border: 0.2rem solid var(--grey-nova);
+}
 button:is(:hover, :focus) {
   box-shadow: 0 0 0 var(--interaction-size) var(--grey-swallow);
+}
+button.clean:is(:hover, :focus) {
+  border-color: var(--blue-sky);
 }
 button:focus {
   outline: none;
@@ -244,4 +252,16 @@ button:active {
   padding-bottom: 8px;
   border-bottom: 2px dashed var(--lilac-cresc);
   outline: none;
+}
+
+button#shortcuts-help {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 42%;
+}
+.overlay {
+  display: none;
 }
