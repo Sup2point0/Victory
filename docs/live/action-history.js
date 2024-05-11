@@ -8,7 +8,7 @@ export class InvertibleAction {
 
   constructor(action, arg, inverse = null) {
     this.action = () => action(arg);
-    this.inverse = inverse ?? (() => action(arg));
+    this.inverse = inverse ?? (() => action(-arg));
   }
 }
 
@@ -28,8 +28,8 @@ export class ActionHistory {
   }
 
   tryUndo() {
-    if (cursor > 0) {
-      this.#actions[cursor--].inverse();
+    if (this.cursor > 0) {
+      this.#actions[--this.cursor].inverse();
       return true;
     } else {
       return false;
@@ -37,8 +37,8 @@ export class ActionHistory {
   }
 
   tryRedo() {
-    if (cursor < this.#actions.length) {
-      this.#actions[cursor++].action();
+    if (this.cursor < this.#actions.length) {
+      this.#actions[++this.cursor].action();
       return true;
     } else {
       return false;
