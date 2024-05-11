@@ -53,6 +53,12 @@ document.getElementById("action-swap")
 document.getElementById("action-undo")
   .addEventListener("click", event => actionHistory.tryUndo());
 
+document.getElementById("shortcuts-help")
+  .addEventListener("click", event =>
+    document.querySelector(".overlay")
+      .style.display = "block"
+  );
+
 
 // KEYBOARD SHORTCUTS //
 document.addEventListener("keydown", processKeyboardShortcuts);

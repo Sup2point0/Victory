@@ -264,4 +264,8 @@ button#shortcuts-help {
 }
 .overlay {
   display: none;
+  position: fixed;
+  width: 90vw;
+  height: 42vh;
+  background-color: rgba(0 0 0 42%);
 }
