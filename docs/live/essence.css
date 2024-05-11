@@ -47,6 +47,35 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
+input.interactive {
+  width: 12rem;
+  padding: 0.5rem 1.5rem;
+  border: 2px solid var(--grey-nova);
+  border-color: none;
+  border-radius: 2rem;
+  transition: all 0.12s ease-out;
+}
+input.interactive:is(:hover, :focus) {
+  border-color: var(--this-colour);
+  box-shadow: 0 0 0 var(--interaction-size) color-mix(in srgb, var(--this-colour) 42%, transparent);
+  outline: none;
+}
+
+button {
+  text-align: center;
+  border: none;
+  transition: all 0.12s ease;
+}
+button:is(:hover, :focus) {
+  box-shadow: 0 0 0 var(--interaction-size) var(--grey-swallow);
+}
+button:focus {
+  outline: none;
+}
+button:active {
+  transform: scale(0.9);
+}
+
 
 /* SECTIONS */
 .player-1, .player-2 {
@@ -112,32 +141,18 @@ input::-webkit-inner-spin-button {
   align-items: center;
 }
 
-:is(.health-input, .notes) input {
-  width: 12rem;
-  padding: 0.5rem 1.5rem;
+.health-input input {
   text-align: center;
   font-family: var(--font-tech);
   font-size: 1.69rem;
-  border: 2px solid var(--grey-nova);
-  border-color: none;
-  border-radius: 2rem;
-  transition: all 0.12s ease-out;
-}
-:is(.health-input, .notes) input:is(:hover, :focus) {
-  border-color: var(--this-colour);
-  box-shadow: 0 0 0 var(--interaction-size) color-mix(in srgb, var(--this-colour) 42%, transparent);
-  outline: none;
 }
 
 .health-display button {
   width: 3rem;
   height: 3rem;
   flex: none;
-  text-align: center;
   color: white;
   border-radius: 50%;
-  border: none;
-  transition: all 0.12s ease;
 }
 .health-display button.polarity-positive {
   background-color: var(--blue-nova);
@@ -148,14 +163,6 @@ input::-webkit-inner-spin-button {
 
 .health-display button:is(:hover, :focus) {
   background-color: var(--purp-nova);
-  color: white;
-  box-shadow: 0 0 0 var(--interaction-size) var(--grey-swallow);
-}
-.health-display button:focus {
-  outline: none
-}
-.health-display button:active {
-  transform: scale(0.9);
 }
 
 .action-buttons {
@@ -172,30 +179,46 @@ input::-webkit-inner-spin-button {
   font-size: 169%;
   font-family: var(--font-flavour);
   color: var(--blue-sky);
-  border: none;
   border-radius: 0.69em;
-  transition: all 0.12s ease;
 }
 .action-buttons button:is(:hover, :focus) {
   background-color: var(--pink-elec);
   color: white;
-  box-shadow: 0 0 0 var(--interaction-size) var(--grey-swallow);
-}
-.action-buttons button:focus {
-  outline: none;
-}
-.action-buttons button:active {
-  transform: scale(0.9);
 }
 
 .notes {
+  --this-colour: var(--lilac-nova);
   width: 100vw;
+}
+.note-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.notes input {
+  margin: auto 0.5rem;
+  font-family: var(--font-flavour);
+  font-size: 150%;
 }
 .notes input.long {
   width: 30%;
 }
 .notes input.short {
-  width: 10%;
+  width: 7%;
+}
+
+.notes button.delete-note {
+  margin-left: 0.69rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--pink-elec);
+  color: white;
+  border-radius: 50%;
+}
+.notes button.delete-note:is(:hover, :focus) {
+  background-color: var(--purp-nova);
 }
 
 

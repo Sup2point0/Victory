@@ -1,6 +1,6 @@
 /*
 Handles tracing actions for undo/redo.
- */
+*/
 
 export class InvertibleAction {
   action;
@@ -15,8 +15,7 @@ export class InvertibleAction {
 
 export class ActionHistory {
   #actions = [];
-  cursor = 0;
-  // Use 1-indexing for convenience and convert when needed
+  cursor = 0;  // Use 1-indexing for convenience and convert when needed
 
   push(action) {
     if (this.cursor < this.#actions.length) {
