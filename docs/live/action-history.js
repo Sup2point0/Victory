@@ -6,7 +6,7 @@ export class InvertibleAction {
   action;
   inverse;
 
-  constructor this(action, arg, inverse = null) {
+  constructor(action, arg, inverse = null) {
     this.action = () => action(arg);
     this.inverse = inverse ?? (() => action(arg));
   }
@@ -18,16 +18,16 @@ export class ActionHistory {
   cursor = 0;
   // Use 1-indexing for convenience and convert when needed
 
-  function push(action) {
+  push(action) {
     if (this.cursor < this.#actions.length) {
       this.#actions = this.#actions.slice(0, this.cursor);
     }
 
     this.#actions.push(action);
-    this.#cursor = this.#actions.length;
+    this.cursor = this.#actions.length;
   }
 
-  function tryUndo() {
+  tryUndo() {
     if (cursor > 0) {
       this.#actions[cursor--].inverse();
       return true;

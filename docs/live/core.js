@@ -1,5 +1,5 @@
 // import { Player } from "player";
-import { ActionHistory, InvertibleAction } from "action-history.js";
+import { ActionHistory, InvertibleAction } from "./action-history.js";
 
 class Player {
   // STATIC //
