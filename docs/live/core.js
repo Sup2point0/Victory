@@ -60,6 +60,12 @@ document.getElementById("shortcuts-help")
   );
 
 
+// ELEMENTS
+document.querySelector("youtube-playlist iframe")
+  .src = "https://www.youtube.com/embed/videoseries?list=PL00nN9ot3iD8DbeEIvGNml5A9aAOkXaIt&index="
+    + Math.floor(Math.random() * 94);
+
+
 // KEYBOARD SHORTCUTS //
 document.addEventListener("keydown", processKeyboardShortcuts);
 
