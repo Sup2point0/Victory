@@ -1,4 +1,8 @@
 /* CORE */
+html {
+  margin: 0;
+  padding: 0;
+}
 input {
   --this-colour: var(--blue-nova);
   --interaction-size: 4px;
@@ -7,8 +11,16 @@ input {
 }
 
 /* SECTIONS */
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: start;;
+}
+
 .card-editor {
-  width: 50%;
+  width: 100%;
 }
 
 .card-details {
