@@ -6,13 +6,14 @@
   <title> Victory </title>
   <meta charset="utf-8">
   <meta name="description" content="A health displayer for Victory!, Yu-Gi-Oh! and other alike card games.">
-  <meta name="viewport" content="width = device-width">
+  <meta name="viewport" content="width = device-width, initial-scale = 1">
 
-  <link rel="stylesheet" type="text/css" href="https://raw.githack.com/Sup2point0/supcode/sup/resources/Nova/Nova.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abel&family=Luckiest+Guy&family=Sniglet:wght@400;800&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <link rel="stylesheet" type="text/css" href="../resources/styles/nova.css">
+  <link rel="stylesheet" type="text/css" href="../resources/styles/inputs.css">
   <link rel="stylesheet" type="text/css" href="essence.css">
   
   <script type="module" defer src="core.js"> </script>
@@ -32,20 +33,20 @@
       </div>
 
       <div class="card-details">
-        <input id="card-id" type="number">
-        <input id="card-name" type="text">
-        <input id="desc" type="text">
-        <input id="card-type" type="dropdown">
-        <input id="spirit type" type="">
-        <input id="spell type" type="">
-        <input id="power" type="">
-        <input id="sacrifices" type="">
-        <input id="materials" type="">
+        <input id="card-id" class="interactive" type="number">
+        <input id="card-name" class="interactive" type="text">
+        <input id="desc" class="interactive" type="text">
+        <input id="card-type" class="interactive" type="dropdown">
+        <input id="spirit type" class="interactive" type="">
+        <input id="spell type" class="interactive" type="">
+        <input id="power" class="interactive" type="">
+        <input id="sacrifices" class="interactive" type="">
+        <input id="materials" class="interactive" type="">
         <div id="upgrades">
           <div class="upgrade">
-            <input class="level" type="">
-            <input class="variable" type="dropdown">
-            <input class="upgrade-value" type="">
+            <input class="interactive level" type="">
+            <input class="interactive variable" type="dropdown">
+            <input class="interactive upgrade-value" type="">
         </div>
       </div>
     </div>

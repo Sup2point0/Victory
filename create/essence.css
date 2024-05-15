@@ -1,3 +1,12 @@
+/* CORE */
+input {
+  --this-colour: var(--blue-nova);
+  --interaction-size: 4px;
+  text-align: center;
+  font-size: 100%;
+}
+
+/* SECTIONS */
 .card-editor {
   width: 50%;
 }
