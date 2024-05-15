@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Victory Card Shema",
+  "description": "A card in Victory!",
+  "properties":
+  {
+    "spirits":
+    {
+      "type": "object",
+      "required": ["Shard", "Name", "CardType", "Kind", "SpiritType"],
+      "properties":
+      {
+        "Shard": {
+          "description": "A unique identifier for the card.",
+          "type": "integer"
+        },
+        "Name": {
+          "description": "The name of the card.",
+          "type": "string"
+        },
+        "CardType": {
+          "description": "The type of the card.",
+          "type": "string",
+          "enum": ["spirit", "spell"]
+        },
+        "Description": {
+          "description": "Flavour text for a non-effect spirit.",
+          "type": "string"
+        },
+        "Effects": {
+          "description": "A list of effects of the card.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Text": {"type": "string"},
+              "RequiredLevel": {"type": "integer"}
+            }
+          }
+        },
+        "Kind": {
+          "description": "A unique identifier for the card.",
+          "type": "integer"
+        },
+        "SpiritType": {
+          "description": "A unique identifier for the card.",
+          "type": "integer"
+        },
+        "Power": {
+          "description": "A unique identifier for the card.",
+          "oneOf": [
+            {"type": "integer"},
+            {"enum": ["?"]}
+          ]
+        },
+        "Sacrifices": {
+          "description": "A unique identifier for the card.",
+          "type": "integer"
+        },
+        "Materials": {
+          "description": "A unique identifier for the card.",
+          "type": "integer"
+        },
+        "Upgrades": {
+          "description": "Dynamic variables which change when the card is upgraded.",
+          "type": "object",
+          "properties": {
+            "patternProperties": {  
+              "[0-9]*": {"type": "string"}
+            }
+          }
+        }
+      }
+    }
+  }
+}
