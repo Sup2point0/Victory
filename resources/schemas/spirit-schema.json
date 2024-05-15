@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Victory Spirit Card Shema",
+  "description": "A spirit card in Victory!",
+  "required": ["Shard", "Name", "CardType", "Kind", "SpiritType"],
+  "additionalProperties": false,
+  "properties":
+  {
+    "Shard": {
+      "description": "Unique integer identifier for the card.",
+      "type": "integer"
+    },
+    "Name": {
+      "description": "Displayed name (capitalisation, spacing retained).",
+      "type": "string"
+    },
+    "CardType": {
+      "description": "Card type.",
+      "type": "string",
+      "enum": ["spirit", "spell"]
+    },
+    "Description": {
+      "description": "Flavour text for a non-effect spirit.",
+      "type": "string"
+    },
+    "Effects": {
+      "description": "List of effects of the card.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Text": {"type": "string"},
+          "RequiredLevel": {"type": "integer"}
+        }
+      }
+    },
+    "Kind": {
+      "description": "Kind of the spirit.",
+      "enum": ["STANDARD", "UPGRADE", "FUSION"]
+    },
+    "SpiritType": {
+      "description": "Type of the spirit.",
+      "enum": ["CYBERNETIC"]
+    },
+    "Power": {
+      "description": "Base power stat determining outcomes of battles with other spirits.",
+      "oneOf": [
+        {"type": "integer", "minimum": 0},
+        {"enum": ["?"]}
+      ]
+    },
+    "Sacrifices": {
+      "description": "Number of sacrifices required for a sacrifice spawn.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 3
+    },
+    "Materials": {
+      "description": "Materials required for a special spawn.",
+      "type": "integer"
+    },
+    "Upgrades": {
+      "description": "Dynamic variables which change when the card is upgraded.",
+      "type": "object",
+      "properties": {
+        "patternProperties": {  
+          "[0-9]*": {"type": "string"}
+        }
+      }
+    }
+  }
+}
