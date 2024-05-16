@@ -13,6 +13,8 @@ body {
 input {
   --this-colour: var(--blue-nova);
   --interaction-size: 4px;
+  width: 10rem;
+  padding: 0.5rem 1.5rem;
   text-align: left;
   font-size: 100%;
 }

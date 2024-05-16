@@ -1,6 +1,4 @@
 input.interactive {
-  width: 12rem;
-  padding: 0.5rem 1.5rem;
   border: 2px solid var(--grey-nova);
   border-color: none;
   border-radius: 2rem;

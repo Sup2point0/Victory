@@ -42,6 +42,11 @@ body {
   overflow-x: hidden;
 }
 
+input {
+  width: 12rem;
+  padding: 0.5rem 1.5rem;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
