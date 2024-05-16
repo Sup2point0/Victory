@@ -15,4 +15,6 @@
   --col-grey-dark:     oklch(70% 0 0);
   --col-grey-darker:   oklch(65% 0 0);
   --col-grey-darkest:  oklch(60% 0 0);
+
+  --col-back: oklch(75% 0.05 270);
 }
