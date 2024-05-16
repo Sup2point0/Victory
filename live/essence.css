@@ -45,6 +45,7 @@ body {
 input {
   width: 12rem;
   padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
 }
 
 input::-webkit-outer-spin-button,

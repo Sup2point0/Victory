@@ -1,7 +1,6 @@
 .interactive {
   border: 2px solid var(--col-grey);
   border-color: none;
-  border-radius: 2rem;
   transition: all 0.12s ease-out;
 }
 .interactive:is(:hover, :focus) {

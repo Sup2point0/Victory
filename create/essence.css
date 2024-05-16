@@ -1,5 +1,6 @@
 /* CORE */
 html {
+  --interaction-size: 4px;
   margin: 0;
   padding: 0;
 }
@@ -11,12 +12,17 @@ body {
 }
 
 input {
-  --this-colour: var(--blue-nova);
+  --this-colour: var(--col-accent-core);
   --interaction-size: 4px;
   width: 10rem;
   padding: 0.5rem 1.5rem;
   text-align: left;
   font-size: 100%;
+  border-radius: 0.5rem;
+}
+
+textarea {
+  resize: none;
 }
 
 /* SECTIONS */
@@ -30,10 +36,13 @@ input {
 
 .card-editor {
   width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
 .card-details {
   width: 50%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -41,7 +50,7 @@ input {
 }
 
 .card-details li {
-  margin: 0.5rem auto;
+  margin: 0.1rem auto;
   display: flex;
   flex-direction: column;
   align-items: start;
