@@ -6,26 +6,13 @@
   "additionalProperties": true,
   "properties":
   {
-    "SpiritKind": {
-      "description": "Kind of the spirit.",
-      "enum": ["STANDARD", "UPGRADE", "FUSION"]
+    "SpellKind": {
+      "description": "Kind of the spell.",
+      "enum": ["STANDARD", "QUICK", "LINGERING", "ATTACHMENT"]
     },
-    "SpiritType": {
-      "description": "Type of the spirit.",
-      "enum": ["CYBERNETIC"]
-    },
-    "Power": {
-      "description": "Base power stat determining outcomes of battles with other spirits.",
-      "oneOf": [
-        {"type": "integer", "minimum": 0},
-        {"enum": ["?"]}
-      ]
-    },
-    "Sacrifices": {
-      "description": "Number of sacrifices required for a sacrifice spawn.",
-      "type": "integer",
-      "minimum": 0,
-      "maximum": 3
-    },
+    "SpellType": {
+      "description": "Additional type(s) of the spell.",
+      "type": "array"
+    }
   }
 }
