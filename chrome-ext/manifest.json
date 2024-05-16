@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Victory Card Ideas",
+  "description": "Submit ideas for Victory! cards.",
+  "version": "1.0",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "/.assets/victory.png"
+  }
+}
