@@ -6,7 +6,7 @@
 :root {
   --col-accent-core: rgb(64, 144, 241);
   --col-accent-prot: rgb(255, 0, 69);
-  --col-accent-deut: rgb(144, 64, 241)
+  --col-accent-deut: rgb(144, 64, 241);
 
   --col-grey-lightest: oklch(80% 0 0);
   --col-grey-lighter:  oklch(80% 0 0);
