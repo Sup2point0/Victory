@@ -47,17 +47,17 @@
             <label for="card-desc"> Description </label>
             <textarea id="card-desc" class="interactive"> </textarea>
           </li>
-          <ul class="card-effects">
-            <li class="card-effect">
-              <input class="effect-level interactive" type="number" min="0">
-              <input class="effect-body interactive" type="text">
-            </li>
-          </ul>
           <li>
             <label for="card-type"> Type </label>
             <select id="card-type">
               <option value="SPIRIT"> Spirit </option>
               <option value="SPELL"> Spell </option>
+            </select>
+          </li>
+          <li>
+            <label for="card-rarity"> Rarity </label>
+            <select id="card-rarity" class="dyna-fill">
+              <option value="UNKNOWN"> ? </option>
             </select>
           </li>
           
@@ -71,7 +71,7 @@
           </li>
           <li class="spirit-field">
             <label for="spirit-type"> Spirit Type </label>
-            <select id="spirit-type">
+            <select id="spirit-type" class="dyna-fill">
               <option value="UNKNOWN"> ? </option>
             </select>
           </li>
@@ -92,6 +92,39 @@
             <label for="spirit-materials"> Materials </label>
             <input id="spirit-materials" class="interactive" type="text">
           </li>
+          
+          <li class="spell-field">
+            <label for="spell-kind"> Spell Kind </label>
+            <select id="spell-kind">
+              <option value="STANDARD"> Standard </option>
+              <option value="QUICK"> Quick </option>
+              <option value="LINGERING"> Lingering </option>
+              <option value="ATTACHMENT"> Attachment </option>
+            </select>
+          </li>
+          <li class="spell-field">
+            <label for="spell-type"> Spell Type </label>
+            <select id="spell-type" class="dyna-fill">
+              <option value="UNKNOWN"> ? </option>
+            </select>
+          </li>
+
+          <ul class="card-effects">
+            <li class="card-effect">
+              <input class="effect-level interactive" type="number" min="0">
+              <select class="effect-type interactive" class="dyna-fill">
+                <option value="UNKNOWN"> ? </option>
+              </select>
+              <input class="effect-body interactive" type="text">
+            </li>
+          </ul>
+          <ul class="card-upgrades">
+            <li class="card-upgrade">
+              <input class="upgrade-level interactive" type="number" min="0">
+              <input class="upgrade-variable interactive" type="text">
+              <input class="upgrade-value interactive" type="text">
+            </li>
+          </ul>
         </ul>
       </form>
     </div>
