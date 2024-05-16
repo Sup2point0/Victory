@@ -8,11 +8,11 @@
   --col-accent-prot: rgb(255, 0, 69);
   --col-accent-deut: rgb(144, 64, 241);
 
-  --col-grey-lightest: oklch(80% 0 0);
-  --col-grey-lighter:  oklch(80% 0 0);
+  --col-grey-lightest: oklch(90% 0 0);
+  --col-grey-lighter:  oklch(85% 0 0);
   --col-grey-light:    oklch(80% 0 0);
-  --col-grey:          oklch(80% 0 0);
-  --col-grey-dark:     oklch(80% 0 0);
-  --col-grey-darker:   oklch(80% 0 0);
-  --col-grey-darkest:  oklch(80% 0 0);
+  --col-grey:          oklch(75% 0 0);
+  --col-grey-dark:     oklch(70% 0 0);
+  --col-grey-darker:   oklch(65% 0 0);
+  --col-grey-darkest:  oklch(60% 0 0);
 }
