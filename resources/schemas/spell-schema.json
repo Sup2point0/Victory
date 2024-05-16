@@ -1,15 +1,14 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Victory Spirit Card Shema",
-  "description": "JSON Schema for a spirit card in Victory!",
+  "title": "Victory Spell Card Shema",
+  "description": "JSON Schema for a spell card in Victory!",
   "required": ["SpiritType"],
   "additionalProperties": true,
   "properties":
   {
     "SpiritKind": {
       "description": "Kind of the spirit.",
-      "enum": ["STANDARD", "UPGRADE", "FUSION"],
-      "default": "STANDARD"
+      "enum": ["STANDARD", "UPGRADE", "FUSION"]
     },
     "SpiritType": {
       "description": "Type of the spirit.",
@@ -20,23 +19,13 @@
       "oneOf": [
         {"type": "integer", "minimum": 0},
         {"enum": ["?"]}
-      ],
-      "default": 0
+      ]
     },
     "Sacrifices": {
       "description": "Number of sacrifices required for a sacrifice spawn.",
       "type": "integer",
       "minimum": 0,
-      "maximum": 3,
-      "default": 0
+      "maximum": 3
     },
-    "Materials": {
-      "description": "Materials required for a special spawn.",
-      "oneOf": [
-        {"type": "string"},
-        {"type": "null"}
-      ],
-      "default": null
-    }
   }
 }

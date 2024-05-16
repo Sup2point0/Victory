@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Victory Card Shema",
+  "description": "JSON schema for a general card in Victory!",
+  "required": ["Shard", "Name", "CardType"],
+  "additionalProperties": true,
+  "properties":
+  {
+    "Shard": {
+      "description": "Unique integer identifier for the card.",
+      "type": "integer"
+    },
+    "Name": {
+      "description": "Displayed name (unprocessed).",
+      "type": "string"
+    },
+    "CardType": {
+      "description": "Card type.",
+      "type": "string",
+      "enum": ["SPIRIT", "SPELL"]
+    },
+    "Description": {
+      "description": "Flavour text for a non-effect spirit.",
+      "type": "string",
+      "default": ""
+    },
+    "Effects": {
+      "description": "List of effects of the card.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Text": {"type": "string"},
+          "RequiredLevel": {"type": "integer"}
+        }
+      }
+    },
+    "Upgrades": {
+      "description": "Dynamic variables which change when the card is upgraded.",
+      "type": "object",
+      "properties": {
+        "patternProperties": {  
+          "[0-9]*": {
+            "type": "object",
+            "properties": {
+              "Variable": {"type": "string"},
+              "Value": {
+                "oneOf": [
+                  {"type": "number"},
+                  {"type": "string"}
+                ]
+            }
+            }
+          }
+        }
+      }
+    },
+    "Rarity": {
+      "description": "Rarity determining how difficult the card is to unlock and upgrade.",
+      "enum": ["STANDARD", "SUPER", "ULTRA"],
+      "default": "STANDARD"
+    }
+  }
+}
