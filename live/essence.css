@@ -10,8 +10,8 @@ html {
   --font-title: 'Luckiest Guy', 'Abel', 'Segoe UI', system-ui, sans-serif;
   --font-flavour: 'Sniglet', 'Segoe UI', system-ui, sans-serif;
 
-  --player-1-colour: var(--blue-nova);
-  --player-2-colour: var(--pink-elec);
+  --player-1-colour: var(--col-accent-prot);
+  --player-2-colour: var(--col-accent-deut);
 
   --interaction-size: 4px;
 }
@@ -154,10 +154,10 @@ button:active {
   border-radius: 50%;
 }
 .health-display button.polarity-positive {
-  background-color: var(--blue-nova);
+  background-color: var(--col-accent-prot);
 }
 .health-display button.polarity-negative {
-  background-color: var(--pink-elec);
+  background-color: var(--col-accent-deut);
 }
 
 .health-display button:is(:hover, :focus) {
