@@ -15,7 +15,7 @@ export default function saveCard(source) {
 
   let field = ($id) => source.querySelector(`input#${$id}`).value;
   let fields = ($class) => source.querySelectorAll(`input.${$class}`)
-    .map(elem => elem.value
+    .map(elem => elem.value);
 
   let data = {
     id: field("id"),
@@ -30,11 +30,15 @@ export default function saveCard(source) {
     body: JSON.stringify(data),
   }
 
-  let response = fetch(URL, request)
-    .catch(error => popups.Request.show());
+  let response;
+  try {
+    response = fetch(URL, request)
+  } catch (error) {
+    return popups.RequestError.show()
+  }
 
-  switch response.json().status_code {
-    501 => popups.Server.show();
+  switch (response.json().status_code) {
+    case 501: return popups.ServerError.show();
   }
 }
 
