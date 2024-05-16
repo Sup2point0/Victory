@@ -33,23 +33,67 @@
         <img src="~">
       </div>
 
-      <div class="card-details">
-        <input id="card-id" class="interactive" type="number">
-        <input id="card-name" class="interactive" type="text">
-        <input id="desc" class="interactive" type="text">
-        <input id="card-type" class="interactive" type="dropdown">
-        <input id="spirit type" class="interactive" type="">
-        <input id="spell type" class="interactive" type="">
-        <input id="power" class="interactive" type="">
-        <input id="sacrifices" class="interactive" type="">
-        <input id="materials" class="interactive" type="">
-        <div id="upgrades">
-          <div class="upgrade">
-            <input class="interactive level" type="">
-            <input class="interactive variable" type="dropdown">
-            <input class="interactive upgrade-value" type="">
-        </div>
-      </div>
+      <form>
+        <ul class="card-details">
+          <li>
+            <label for="card-id"> ID </label>
+            <input id="card-id" class="interactive" type="number">
+          </li>
+          <li>
+            <label for="card-name"> Name </label>
+            <input id="card-name" class="interactive" type="text">
+          </li>
+          <li>
+            <label for="card-desc"> Description </label>
+            <textarea id="card-desc" class="interactive"> </textarea>
+          </li>
+          <ul class="card-effects">
+            <li class="card-effect">
+              <input class="effect-level interactive" type="number" min="0">
+              <input class="effect-body interactive" type="text">
+            </li>
+          </ul>
+          <li>
+            <label for="card-type"> Type </label>
+            <select id="card-type">
+              <option value="SPIRIT"> Spirit </option>
+              <option value="SPELL"> Spell </option>
+            </select>
+          </li>
+          
+          <li class="spirit-field">
+            <label for="spirit-kind"> Kind </label>
+            <select id="spirit-kind">
+              <option value="STANDARD"> Standard </option>
+              <option value="UPGRADE"> Upgrade </option>
+              <option value="FUSION"> Fusion </option>
+            </select>
+          </li>
+          <li class="spirit-field">
+            <label for="spirit-type"> Spirit Type </label>
+            <select id="spirit-type">
+              <option value="UNKNOWN"> ? </option>
+            </select>
+          </li>
+          <li class="spirit-field">
+            <label for="spirit-power"> Power </label>
+            <input id="spirit-power" class="interactive" type="number">
+          </li>
+          <li class="spirit-field">
+            <label for="spirit-sacrifices"> Sacrifices </label>
+            <select id="spirit-sacrifices">
+              <option> 0 </option>
+              <option> 1 </option>
+              <option> 2 </option>
+              <option> 3 </option>
+            </select>
+          </li>
+          <li class="spirit-field">
+            <label for="spirit-materials"> Materials </label>
+            <input id="spirit-materials" class="interactive" type="text">
+          </li>
+        </ul>
+      </form>
     </div>
 
     <div class="footer protected">
