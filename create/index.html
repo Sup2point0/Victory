@@ -36,33 +36,33 @@
         <ul class="card-details">
           <li>
             <label for="card-id"> ID </label>
-            <input id="card-id" class="interactive" type="number">
+            <input id="card-id" name="Shard" class="interactive" type="number">
           </li>
           <li>
             <label for="card-name"> Name </label>
-            <input id="card-name" class="interactive" type="text">
+            <input id="card-name" name="Name" class="interactive" type="text">
           </li>
           <li>
             <label for="card-desc"> Description </label>
-            <textarea id="card-desc" class="interactive"> </textarea>
+            <textarea id="card-desc" name="Description" class="interactive"> </textarea>
           </li>
           <li>
             <label for="card-type"> Type </label>
-            <select id="card-type">
+            <select id="card-type" name="SpiritType">
               <option value="SPIRIT"> Spirit </option>
               <option value="SPELL"> Spell </option>
             </select>
           </li>
           <li>
             <label for="card-rarity"> Rarity </label>
-            <select id="card-rarity" class="dyna-fill">
+            <select id="card-rarity" name="Rarity" class="dyna-fill">
               <option value="UNKNOWN"> ? </option>
             </select>
           </li>
           
           <li class="spirit-field">
             <label for="spirit-kind"> Kind </label>
-            <select id="spirit-kind">
+            <select id="spirit-kind" name="SpiritKind">
               <option value="STANDARD"> Standard </option>
               <option value="UPGRADE"> Upgrade </option>
               <option value="FUSION"> Fusion </option>
@@ -70,17 +70,17 @@
           </li>
           <li class="spirit-field">
             <label for="spirit-type"> Spirit Type </label>
-            <select id="spirit-type" class="dyna-fill">
+            <select id="spirit-type" name="SpiritType" class="dyna-fill">
               <option value="UNKNOWN"> ? </option>
             </select>
           </li>
           <li class="spirit-field">
             <label for="spirit-power"> Power </label>
-            <input id="spirit-power" class="interactive" type="number">
+            <input id="spirit-power" name="Power" class="interactive" type="number">
           </li>
           <li class="spirit-field">
             <label for="spirit-sacrifices"> Sacrifices </label>
-            <select id="spirit-sacrifices">
+            <select id="spirit-sacrifices" name="Sacrifices">
               <option> 0 </option>
               <option> 1 </option>
               <option> 2 </option>
@@ -89,12 +89,12 @@
           </li>
           <li class="spirit-field">
             <label for="spirit-materials"> Materials </label>
-            <input id="spirit-materials" class="interactive" type="text">
+            <input id="spirit-materials" name="Materials" class="interactive" type="text">
           </li>
           
           <li class="spell-field">
             <label for="spell-kind"> Spell Kind </label>
-            <select id="spell-kind">
+            <select id="spell-kind" name="SpellKind">
               <option value="STANDARD"> Standard </option>
               <option value="QUICK"> Quick </option>
               <option value="LINGERING"> Lingering </option>
@@ -103,12 +103,12 @@
           </li>
           <li class="spell-field">
             <label for="spell-type"> Spell Type </label>
-            <select id="spell-type" class="dyna-fill">
+            <select id="spell-type" name="SpellType" class="dyna-fill">
               <option value="UNKNOWN"> ? </option>
             </select>
           </li>
 
-          <ul class="card-effects">
+          <ul class="card-effects" name="Effects">
             <li class="card-effect">
               <input class="effect-level interactive" type="number" min="0">
               <select class="effect-type interactive" class="dyna-fill">
@@ -117,7 +117,7 @@
               <input class="effect-body interactive" type="text">
             </li>
           </ul>
-          <ul class="card-upgrades">
+          <ul class="card-upgrades" name="Upgrades">
             <li class="card-upgrade">
               <input class="upgrade-level interactive" type="number" min="0">
               <input class="upgrade-variable interactive" type="text">
