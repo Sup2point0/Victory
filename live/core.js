@@ -5,6 +5,7 @@ import { ActionHistory, InvertibleAction } from "./action-history.js";
 var player1 = new Player();
 var player2 = new Player();
 
+var currentTurn = 1;
 var deltaPolarity = -1;
 var actionHistory = new ActionHistory();
 
@@ -53,6 +54,13 @@ document.getElementById("action-swap")
 document.getElementById("action-undo")
   .addEventListener("click", event => actionHistory.tryUndo());
 
+let noteRows = document.querySelector(".notes");
+let noteNode = document.querySelector(".notes template");
+document.getElementById("add-note")
+  .addEventListener("click", event =>
+    noteRows.appendChild(noteNode.content.cloneNode(true))
+  );
+
 document.getElementById("shortcuts-help")
   .addEventListener("click", event =>
     document.querySelector(".overlay")
@@ -75,6 +83,10 @@ const keyboardShortcuts = {
   "q": () => swapPolarity.click(),
   "r": () => actionReset.click(),
   "z": () => actionHistory.tryUndo(),
+  "t": () => {
+    currentTurn = (currentTurn++ % 2);
+    document.querySelector(".content").className = `content turn-${currentTurn}`;
+  },
 }
 
 function processKeyboardShortcuts(event) {
