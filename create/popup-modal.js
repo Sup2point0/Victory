@@ -1,5 +1,5 @@
-export class PopupModal {
-  constructor(type, title, content, buttons = null) {
+export default class PopupModal {
+  constructor({type, title, content, buttons = null} = {}) {
     this.html = `<div class="popup ${type.toLowerCase()} active">
   <div class="popup-box">
     <h2> ${title} </h2>
