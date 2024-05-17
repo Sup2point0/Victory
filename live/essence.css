@@ -189,6 +189,7 @@ button:active {
 .notes {
   --this-colour: var(--lilac-nova);
   width: 100vw;
+  margin: 2rem;
 }
 .note-row {
   display: flex;
@@ -244,6 +245,10 @@ button:active {
   padding-bottom: 8px;
   border-bottom: 2px dashed var(--lilac-cresc);
   outline: none;
+}
+
+.youtube-playlist {
+  margin-top: 2rem;
 }
 
 button#shortcuts-help {
