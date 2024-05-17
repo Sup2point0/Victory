@@ -1,5 +1,4 @@
-import PopupModal from "./popup-modal.js";
-import popups from "./popup-presets.js";
+import * as popups from "./popup-presets.js";
 
 
 const SAVE_COOLDOWN = 10;
@@ -8,7 +7,7 @@ const URL = "https://sup2point0.npkn.net/victory-cards";
 
 
 export default function saveCard(source) {
-  let delta = Date.Now() - saveCards.lastSave;
+  let delta = Date.now() - saveCard.lastSave;
   if (delta < SAVE_COOLDOWN) {
     return popups.Cooldown.show();
   }
@@ -18,8 +17,8 @@ export default function saveCard(source) {
     .map(elem => elem.value);
 
   let data = {
-    id: field("id"),
-    effects: (() => ())(),
+    Shard: field("card-id"),
+    // effects: (() => ())(),
   }
 
   let request = {
