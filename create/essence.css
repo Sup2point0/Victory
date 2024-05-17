@@ -3,7 +3,7 @@ html {
   --font-flavour: 'Sniglet', 'Segoe UI', system-ui, sans-serif;
   --interaction-size: 4px;
   margin: 0;
-  padding: 0;
+  padding: 0.5rem;
 }
 
 body {
@@ -12,7 +12,7 @@ body {
   margin: 0;
   overflow-x: hidden;
   font-family: var(--font-flavour);
-  font-size: 150%;
+  font-size: 120%;
 }
 
 div { outline: var(--col-accent-core) solid 2px; }
@@ -20,7 +20,7 @@ div { outline: var(--col-accent-core) solid 2px; }
 input, textarea {
   --this-colour: var(--col-accent-core);
   --interaction-size: 4px;
-  width: 10rem;
+  width: 20rem;
   padding: 0.5rem 1rem;
   text-align: left;
   font: inherit;
@@ -30,9 +30,6 @@ input, textarea {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
-}
-input[type=number] {
-  -moz-appearance: textfield;
 }
 
 textarea {
@@ -54,19 +51,17 @@ label {
 }
 
 .card-browser {
-  width: 50%;
-  flex: 1;
+  width: 50vw;
 }
 
 .card-editor {
-  width: 100%;
+  width: 50%;
   display: flex;
   flex-direction: row;
 }
 
 .card-details {
-  width: 50%;
-  /* height: 100%; */
+  /* width: 50%; */
   display: flex;
   flex-direction: column;
   justify-content: end;
@@ -75,11 +70,21 @@ label {
 
 .card-details li {
   width: 100%;
-  margin: 0.1rem auto;
+  margin: 0.3rem auto;
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: center;
+}
+
+.card-details ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card-details ul li[type=number] input {
+  width: 2rem;
 }
 
 /* OTHER */
