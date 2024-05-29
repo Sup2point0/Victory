@@ -33,18 +33,18 @@ document.querySelector(".player-2 .health-input input")
 
 
 // BUTTONS //
-let swapPolarity = document.getElementById("swap-polarity");
-let swapPolarityChild = swapPolarity.children[0]
+const swapPolarity = document.getElementById("swap-polarity");
+const swapPolarityChild = swapPolarity.children[0]
 swapPolarity.addEventListener("click", event => {
   deltaPolarity *= -1;
   swapPolarityChild.innerHTML = deltaPolarity > 0 ? "add" : "remove";
   swapPolarity.className = "polarity-" + (deltaPolarity > 0 ? "positive" : "negative");
 });
 
-let actionReset = document.getElementById("action-reset");
+const actionReset = document.getElementById("action-reset");
 actionReset.addEventListener("click", event => Player.resetAll());
 
-let displayContainer = document.querySelector(".health-display");
+const displayContainer = document.querySelector(".health-display");
 document.getElementById("action-swap")
   .addEventListener("click", event => 
     displayContainer.style.flexDirection =
@@ -54,8 +54,8 @@ document.getElementById("action-swap")
 document.getElementById("action-undo")
   .addEventListener("click", event => actionHistory.tryUndo());
 
-let noteRows = document.querySelector(".notes");
-let noteNode = document.querySelector(".notes template");
+const noteRows = document.querySelector(".notes");
+const noteNode = document.querySelector(".notes template");
 document.getElementById("add-note")
   .addEventListener("click", event =>
     noteRows.appendChild(noteNode.content.cloneNode(true))
