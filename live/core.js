@@ -69,9 +69,10 @@ document.getElementById("shortcuts-help")
 
 
 // ELEMENTS
-document.querySelector("youtube-playlist iframe")
-  .src = "https://www.youtube.com/embed/videoseries?list=PL00nN9ot3iD8DbeEIvGNml5A9aAOkXaIt&index="
-    + Math.floor(Math.random() * 94);
+const playlist = document.querySelector("youtube-playlist iframe");
+playlist.src = "https://www.youtube.com/embed/videoseries?list=PL00nN9ot3iD8DbeEIvGNml5A9aAOkXaIt&index="
+  + Math.floor(Math.random() * 94);
+playlist.requestPictureInPicture();
 
 
 // KEYBOARD SHORTCUTS //
