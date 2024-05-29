@@ -56,10 +56,10 @@ document.getElementById("action-undo")
 
 const noteRows = document.querySelector(".notes");
 const noteNode = document.querySelector(".notes template");
-document.getElementById("add-note")
-  .addEventListener("click", event =>
-    noteRows.appendChild(noteNode.content.cloneNode(true))
-  );
+const addNote = document.getElementById("add-note");
+addNote.addEventListener("click", event =>
+  noteRows.appendChild(noteNode.content.cloneNode(true))
+);
 
 document.getElementById("shortcuts-help")
   .addEventListener("click", event =>
@@ -87,6 +87,7 @@ const keyboardShortcuts = {
     currentTurn = (currentTurn++ % 2);
     document.querySelector(".content").className = `content turn-${currentTurn}`;
   },
+  "s": () => addNote.click(),
 }
 
 function processKeyboardShortcuts(event) {
